@@ -29,22 +29,22 @@
   #### 3-1 백엔드
 
   ##### 주요 프레임워크 / 라이브러리
-    - Java 11
-    - SpringBoot
-    - JPA(Spring Data JPA)
-    - Spring Security
+  - Java 11
+  - SpringBoot
+  - JPA(Spring Data JPA)
+  - Spring Security
 
   ##### Build Tool
-    - Gradle
+  - Gradle
 
   ##### DataBase
-    - MySQL
+  - MySQL
 
   #### 3-2 프론트엔드
-    - Html/Css
-    - JavaScript
-    - Thymeleaf
-    - Bootstrap 
+  - Html/Css
+  - JavaScript
+  - Thymeleaf
+  - Bootstrap 
 
 ## 개발 예정
  - 회원가입 시 중복확인 및 유효성 검사
