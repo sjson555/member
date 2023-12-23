@@ -1,5 +1,5 @@
 # Basic Board Project
-> SpringBoot의 기본 소양이 되는 게시판 프로젝트입니다.
+> SpringBoot를 기반으로 한 게시판 프로젝트입니다.
 
 # 목차
 - [들어가며](#들어가며)
