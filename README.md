@@ -1,15 +1,51 @@
+# Basic Board Project
+> SpringBoot의 기본 소양이 되는 게시판 프로젝트입니다.
 
-# 개발환경
-1. IDE: IntelliJ IDEA Community
-2. Spring Boot
-3. JDK 11
-4. MySQL
-5. Gradle
-# 라이브러리
-1. Spring Data JPA
-2. Thymeleaf
-3. Lombok
-   
-## 회원
+# 목차
+- [들어가며](#들어가며)
+  - [프로젝트 소개](#1-프로젝트-소개)    
+  - [프로젝트 기능](#2-프로젝트-기능)    
+  - [사용 기술](#3-사용-기술)   
+     - [백엔드](#3-1-백엔드)
+     - [프론트엔드](#3-2-프론트엔드)
+- [개발 예정](#개발-예정)
 
-## 게시판
+
+## 들어가며
+### 1. 프로젝트 소개
+
+배웠던 내용을 다시한번 상기시키는 목적에서 만들기 시작한 게시판 프로젝트입니다.
+
+### 2. 프로젝트 기능
+
+프로젝트의 주요 기능은 다음과 같습니다.
+
+- **사용자 -** Security 회원가입 및 로그인
+
+### 3. 사용 기술
+
+#### 3-1 백엔드
+
+##### 주요 프레임워크 / 라이브러리
+- Java 11
+- SpringBoot
+- JPA(Spring Data JPA)
+- Spring Security
+
+##### Build Tool
+- Gradle
+
+##### DataBase
+- MySQL
+
+#### 3-2 프론트엔드
+- Html/Css
+- JavaScript
+- Thymeleaf
+- Bootstrap 
+
+## 개발 예정
+ - 회원가입 시 중복확인 및 유효성 검사 (예정)
+ - **게시판 -** CRUD 기능
+ - **댓글 -** CRUD 기능
+
