@@ -1,13 +1,13 @@
-package com.ssj.member;
+package com.ssj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MemberApplication {
+public class BoardifyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MemberApplication.class, args);
+        SpringApplication.run(BoardifyApplication.class, args);
     }
 
 }
