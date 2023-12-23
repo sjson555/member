@@ -1,7 +1,7 @@
-:paperclip:SpringBoot Board Project
+# SpringBoot Board Project
 > SpringBoot를 기반으로 한 게시판 프로젝트입니다.
 
-# 목차
+## 목차
 - [들어가며](#들어가며)
   - [프로젝트 소개](#1-프로젝트-소개)    
   - [프로젝트 기능](#2-프로젝트-기능)    
