@@ -34,7 +34,7 @@ public class MemberController {
     public String execSignup(@Valid MemberDto memberDto, Errors errors, Model model) {
         if (errors.hasErrors()) {
             // 회원가입 실패시, 입력 데이터를 유지
-            model.addAttribute("memberDto", memberDto);
+            model.addAttribute("email", memberDto.getEmail());
 
             // 유효성 통과 못한 필드와 메시지를 핸들링
             Map<String, String> validatorResult = memberService.validateHandling(errors);
