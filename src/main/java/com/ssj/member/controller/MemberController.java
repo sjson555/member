@@ -32,6 +32,13 @@ public class MemberController {
     // 회원가입 처리
     @PostMapping("/user/signup")
     public String execSignup(@Valid MemberDto memberDto, Errors errors, Model model) {
+
+        if (memberService.emailExists(memberDto.getEmail())) {
+            model.addAttribute("email", memberDto.getEmail());
+            model.addAttribute("emailExistsError", "이미 존재하는 이메일 주소입니다.");
+            return "member/signup";
+        }
+
         if (errors.hasErrors()) {
             // 회원가입 실패시, 입력 데이터를 유지
             model.addAttribute("email", memberDto.getEmail());

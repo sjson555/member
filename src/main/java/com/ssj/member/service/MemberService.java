@@ -61,4 +61,9 @@ public class MemberService implements UserDetailsService {
 
         return new User(userEntity.getEmail(), userEntity.getPassword(), authorities);
     }
+
+    public boolean emailExists(String email) {
+        Optional<MemberEntity> existingMember = memberRepository.findByEmail(email);
+        return existingMember.isPresent();
+    }
 }
