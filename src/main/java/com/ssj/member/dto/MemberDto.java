@@ -3,7 +3,6 @@ package com.ssj.member.dto;
 import com.ssj.member.domain.entity.MemberEntity;
 import lombok.*;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
@@ -14,28 +13,28 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MemberDto {
     private Long id;
-    @NotBlank(message = "이메일은 필수 입력 값입니다.")
-    @Email(message = "이메일 형식에 맞지 않습니다.")
-    private String email;
+    @NotBlank(message = "닉네임은 필수 입력 값입니다.")
+    @Pattern(regexp = "^[\\w\\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$", message = "특수문자 제외 2자~ 20자")
+    private String nickname;
     @NotBlank(message = "비밀번호는 필수 입력 값입니다.")
-    @Pattern(regexp="(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,20}",
-            message = "비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호여야 합니다.")
+    @Pattern(regexp = "^[A-Za-z0-9]{6,12}$",
+            message = "숫자와 문자 포함 형태의 6~12자리")
     private String password;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
-    public MemberEntity toEntity(){
+    public MemberEntity toEntity() {
         return MemberEntity.builder()
                 .id(id)
-                .email(email)
+                .nickname(nickname)
                 .password(password)
                 .build();
     }
 
     @Builder
-    public MemberDto(Long id, String email, String password) {
+    public MemberDto(Long id, String nickname, String password) {
         this.id = id;
-        this.email = email;
+        this.nickname = nickname;
         this.password = password;
     }
 }

@@ -46,24 +46,24 @@ public class MemberService implements UserDetailsService {
         return memberRepository.save(memberDto.toEntity()).getId();
     }
 
+    public boolean nicknameExists(String nickname) {
+        Optional<MemberEntity> existingMember = memberRepository.findByNickname(nickname);
+        return existingMember.isPresent();
+    }
+
     @Override
-    public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-        Optional<MemberEntity> userEntityWrapper = memberRepository.findByEmail(userEmail);
-        MemberEntity userEntity = userEntityWrapper.orElseThrow(() -> new UsernameNotFoundException("해당 이메일로 가입된 유저가 없습니다: " + userEmail));
+    public UserDetails loadUserByUsername(String userNickname) throws UsernameNotFoundException {
+        Optional<MemberEntity> userEntityWrapper = memberRepository.findByNickname(userNickname);
+        MemberEntity userEntity = userEntityWrapper.orElseThrow(() -> new UsernameNotFoundException("해당 닉네임으로 가입된 유저가 없습니다: " + userNickname));
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 
-        if (("admin@example.com").equals(userEmail)) {
+        if (("admin").equals(userNickname)) {
             authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
         } else {
             authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
 
-        return new User(userEntity.getEmail(), userEntity.getPassword(), authorities);
-    }
-
-    public boolean emailExists(String email) {
-        Optional<MemberEntity> existingMember = memberRepository.findByEmail(email);
-        return existingMember.isPresent();
+        return new User(userEntity.getNickname(), userEntity.getPassword(), authorities);
     }
 }

@@ -33,15 +33,15 @@ public class MemberController {
     @PostMapping("/user/signup")
     public String execSignup(@Valid MemberDto memberDto, Errors errors, Model model) {
 
-        if (memberService.emailExists(memberDto.getEmail())) {
-            model.addAttribute("email", memberDto.getEmail());
-            model.addAttribute("emailExistsError", "이미 존재하는 이메일 주소입니다.");
+        if (memberService.nicknameExists(memberDto.getNickname())) {
+            model.addAttribute("nickname", memberDto.getNickname());
+            model.addAttribute("nicknameExistsError", "이미 존재하는 닉네임입니다.");
             return "member/signup";
         }
 
         if (errors.hasErrors()) {
             // 회원가입 실패시, 입력 데이터를 유지
-            model.addAttribute("email", memberDto.getEmail());
+            model.addAttribute("nickname", memberDto.getNickname());
 
             // 유효성 통과 못한 필드와 메시지를 핸들링
             Map<String, String> validatorResult = memberService.validateHandling(errors);

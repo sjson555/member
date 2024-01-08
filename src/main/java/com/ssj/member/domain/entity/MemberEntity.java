@@ -17,15 +17,15 @@ public class MemberEntity {
     private Long id;
 
     @Column(length = 20, nullable = false, unique = true)
-    private String email;
+    private String nickname;
 
     @Column(length = 100, nullable = false)
     private String password;
 
     @Builder
-    public MemberEntity(Long id, String email, String password) {
+    public MemberEntity(Long id, String nickname, String password) {
         this.id = id;
-        this.email = email;
+        this.nickname = nickname;
         this.password = password;
     }
 }

@@ -8,7 +8,13 @@
 <body>
 <div th:insert="common/header" id="header"></div>
 <hr>
-<h1>메인 페이지</h1>
+<div th:each="post : ${posts}">
+    <h3 th:text="${post.title}"></h3>
+    <p th:text="${post.content}"></p>
+    <small th:text="${post.author}"></small>
+    <hr>
+</div>
+<a th:href="@{/board/create}">Create New Post</a>
 <hr>
 <div th:insert="common/footer" id="footer"></div>
 </body>
